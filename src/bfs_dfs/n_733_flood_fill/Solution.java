@@ -4,7 +4,6 @@ public class Solution {
     public void fill(int[][] image, int sr, int sc, int newColor, int targetColor){
         if(image[sr][sc] == targetColor){
             image[sr][sc] = newColor;
-            System.out.println("sr: " + sr + ", sc: " + sc);
             if(sr > 0)
                 fill(image, sr - 1, sc, newColor, targetColor);
             if(sr < image.length -1)
@@ -17,9 +16,8 @@ public class Solution {
 
     }
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-        fill(image, sr, sc, -1, image[sr][sc]);
-        fill(image, sr, sc, newColor, -1);
-
+        if(newColor == image[sr][sc]) return image;
+        fill(image, sr, sc, newColor, image[sr][sc]);
         return image;
     }
 
