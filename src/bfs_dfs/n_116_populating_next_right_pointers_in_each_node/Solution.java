@@ -1,6 +1,5 @@
 package bfs_dfs.n_116_populating_next_right_pointers_in_each_node;
 
-
 class Node {
     public int val;
     public Node left;
@@ -25,7 +24,8 @@ class Node {
 public class Solution {
     public Node connect(Node root) {
         if(root == null){
-            return root;
+
+            return null;
         }
         if(root.left != null){
             root.left.next = root.right;
