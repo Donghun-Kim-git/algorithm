@@ -10,22 +10,22 @@ public class Solution {
         return res;
     }
 
-    private void backtrack(int[] nums, int start, List<Integer> permutation, List<List<Integer>> permutations) {
+    private void backtrack(int[] nums, int start, List<Integer> cur, List<List<Integer>> res) {
         StringBuilder prefix = new StringBuilder();
         prefix.append("\t".repeat(start));
-        if (permutation.size() == nums.length) {
-            System.out.print(prefix + "yes! " + permutation + " + " + permutations);
-            permutations.add(new ArrayList<>(permutation));
-            System.out.println(" --> " + permutations);
+        if (cur.size() == nums.length) {
+            System.out.print(prefix + "yes! " + cur + " + " + res);
+            res.add(new ArrayList<>(cur));
+            System.out.println(" --> " + res);
             return;
         }
 
-        for (int i = 0; i <= permutation.size(); i++) {
-            permutation.add(i, nums[start]);
-            System.out.print(prefix + "adding num " + nums[start] + " into " + i + "th position of " + permutation);
-            System.out.println(" permutation is " + permutation);
-            backtrack(nums, start + 1, permutation, permutations);
-            permutation.remove(i);
+        for (int i = 0; i <= cur.size(); i++) {
+            cur.add(i, nums[start]);
+            System.out.print(prefix + "adding num " + nums[start] + " into " + i + "th position of " + cur);
+            System.out.println(" permutation is " + cur);
+            backtrack(nums, start + 1, cur, res);
+            cur.remove(i);
         }
 
     }
