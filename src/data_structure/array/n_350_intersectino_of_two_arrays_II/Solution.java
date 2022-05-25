@@ -1,9 +1,8 @@
 package data_structure.array.n_350_intersectino_of_two_arrays_II;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+        import java.util.ArrayList;
+        import java.util.HashMap;
+        import java.util.Map;
 
 public class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
